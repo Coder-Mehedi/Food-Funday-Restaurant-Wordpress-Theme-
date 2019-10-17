@@ -69,3 +69,5 @@ function food_funday_restaurant_setup() {
 }
 
 add_action( 'after_setup_theme', 'food_funday_restaurant_setup' );
+
+remove_filter('the_content', 'wpautop');

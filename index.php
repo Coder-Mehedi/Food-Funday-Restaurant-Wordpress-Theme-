@@ -430,6 +430,12 @@
         <!-- end container -->
     </div>
     <!-- end menu -->
+    <?php 
+    $args = array('post_type' => 'team_member', 'posts_per_page' => 3);
+    $the_query = new WP_Query( $args ); ?>
+     
+    <?php if ( $the_query->have_posts() ) : ?>
+        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
     <div id="our_team" class="team-main pad-top-100 pad-bottom-100 parallax">
         <div class="container">
@@ -437,23 +443,20 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title text-center">
-						Our Team 	
+						<?php the_title(); ?>	
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                        <div class="title-caption text-center">
+                            <?php the_content() ?>
+                        </div>
                     </div>
                     <div class="team-box">
 
                         <div class="row">
-<?php 
-    $args = array('post_type' => 'team_member', 'posts_per_page' => 3);
-    $the_query = new WP_Query( $args ); ?>
-     
-    <?php if ( $the_query->have_posts() ) : ?>
      
         <!-- pagination here -->
      
         <!-- the loop -->
-        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+        
             <?php 
                 if( have_rows('members') ):
 
@@ -1188,6 +1191,7 @@
             <a title="vivid-yellow" class="switcher vivid-yellow-bg"></a>
         </div>
     </section>
+
 
     <?php wp_footer() ?>
 </body>
