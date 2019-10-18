@@ -70,4 +70,44 @@ function food_funday_restaurant_setup() {
 
 add_action( 'after_setup_theme', 'food_funday_restaurant_setup' );
 
-remove_filter('the_content', 'wpautop');
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Options',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Manage Team Members',
+	// 	'menu_title'	=> 'Team Member',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Manage Our Gallery Section',
+		'menu_title'	=> 'Our Gallery Section',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Manage Pricing Plan',
+		'menu_title'	=> 'Pricing Plan',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+}

@@ -1,5 +1,12 @@
-<?php 
 
+
+<?php if( have_rows('gallery_photo', 'option') ): ?>
+    <?php while( have_rows('gallery_photo', 'option') ): the_row(); ?>
+    	<?php the_sub_field('images'); ?>
+    <?php endwhile ?>
+<?php endif ?>
+
+<?php 
 
 $args = array('post_type' => 'team_member', 'posts_per_page' => 3);
 $the_query = new WP_Query( $args ); ?>
