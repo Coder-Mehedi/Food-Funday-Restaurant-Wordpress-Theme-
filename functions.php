@@ -70,6 +70,51 @@ function food_funday_restaurant_setup() {
 
 add_action( 'after_setup_theme', 'food_funday_restaurant_setup' );
 
+
+function ffr_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer One', 'ffr' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here.', 'ffr' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Two', 'ffr' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add widgets here.', 'ffr' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Three', 'ffr' ),
+		'id'            => 'footer-3',
+		'description'   => esc_html__( 'Add widgets here.', 'ffr' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Four', 'ffr' ),
+		'id'            => 'footer-4',
+		'description'   => esc_html__( 'Add widgets here.', 'ffr' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'ffr_widgets_init' );
+
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
