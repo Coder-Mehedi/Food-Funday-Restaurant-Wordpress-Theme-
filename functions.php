@@ -81,6 +81,12 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'About Us Section',
+		'menu_title'	=> 'About Us',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Theme Header Settings',
 		'menu_title'	=> 'Header',
 		'parent_slug'	=> 'theme-general-settings',
@@ -95,6 +101,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Manage Our Gallery Section',
 		'menu_title'	=> 'Our Gallery Section',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> "Manage Today's Special Section",
+		'menu_title'	=> "Today's Special",
 		'parent_slug'	=> 'theme-general-settings',
 	));
 

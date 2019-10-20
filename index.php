@@ -108,21 +108,31 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title"> About Us </h2>
-                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
 
-                        <p> Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, Aenean commodo ligula eget dolor penatibu set magnis is parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, pellentesque eu, pretium quis, sem. quat massa quis enim. Donec vitae sapien ut libero venenatis fauci Nullam quis ante. Etiam sit amet rci eget eros. </p>
+                    <?php if(get_field('change_about_us_section_title','option')): ?>
+                        <h2 class="block-title"> <?php the_field('change_about_us_section_title','option') ?> </h2>
+                    <?php endif ?>
 
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                    <?php if(get_field('tag_line_optional','option')): ?>
+                        <h3><?php the_field('tag_line_optional','option') ?></h3>
+                    <?php endif ?>
+
+                    <?php if(get_field('about_section_details','option')): ?>
+                        <p><?php the_field('about_section_details','option') ?></p>
+                    <?php endif ?>
                     </div>
                 </div>
                 <!-- end col -->
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <div class="about-images">
-                            <img class="about-main" src="<?php echo get_template_directory_uri() ?>/images/about-main.jpg" alt="About Main Image">
-                            <img class="about-inset" src="<?php echo get_template_directory_uri() ?>/images/about-inset.jpg" alt="About Inset Image">
+                        <?php if(get_field('main_image','option')): ?>
+                            <img class="about-main" src="<?php the_field('main_image','option') ?>" alt="About Main Image">
+                        <?php endif ?>
+
+                        <?php if(get_field('secondary_image', 'option')): ?>
+                            <img class="about-inset" src="<?php the_field('secondary_image','option') ?>" alt="About Inset Image">
+                        <?php endif ?>
                         </div>
                     </div>
                 </div>
@@ -138,81 +148,44 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title color-white text-center"> Today's Special </h2>
-                        <h5 class="title-caption text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia,nostrud exercitation ullamco. </h5>
+<?php if( get_field('todays_special_section_heading', 'option') ): ?>
+                        <h2 class="block-title color-white text-center"> <?php the_field('todays_special_section_heading', 'option') ?> </h2>
+    <?php else: ?>
+                            <h2 class="block-title color-white text-center">Today's Special</h2>
+<?php endif ?>
+
+<?php if( get_field('todays_special_section_details', 'option') ): ?>
+                        <h5 class="title-caption text-center">
+    <?php the_field('todays_special_section_details', 'option') ?> 
+                        </h5>
+    <?php else: ?>
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia,nostrud exercitation ullamco.</h5>
+<?php endif ?>
                     </div>
                     <div class="special-box">
                         <div id="owl-demo">
+
+<?php if( have_rows('todays_special_recipe', 'option') ): ?>
+    <?php while( have_rows('todays_special_recipe', 'option') ): the_row(); ?>
+
                             <div class="item item-type-zoom">
                                 <a href="#" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            SALMON STEAK
+                                            <?php the_sub_field('recipe_name'); ?>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">
+                                                <?php the_sub_field('recipe_details') ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/special-menu-1.jpg" alt="sp-menu">
+                                    <img src="<?php the_sub_field('photo'); ?>" alt="sp-menu">
                                 </div>
                             </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            ITALIAN PIZZA
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/special-menu-2.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            VEG. ROLL
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/special-menu-3.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            SALMON STEAK
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/special-menu-1.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            VEG. ROLL
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/special-menu-2.jpg" alt="sp-menu">
-                                </div>
-                            </div>
+    <?php endwhile ?>
+<?php endif ?>
                         </div>
                     </div>
                     <!-- end special-box -->
@@ -710,15 +683,50 @@
                                 <p><strong>$<?php the_sub_field('plan_price'); ?>/<span>Month</span></strong></p>
                             </div>
                             <ul class="list-group text-center">
-                                <li class="list-group-item"><i class="fa fa-check"></i> One Website</li>
-                                <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
-                                <li class="list-group-item"><i class="fa fa-check"></i> 10 GB Bandwidth</li>
-                                <li class="list-group-item"><i class="fa fa-times"></i> 2GB Storage</li>
-                                <li class="list-group-item"><i class="fa fa-times"></i> Offline work</li>
-                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+    
+    <?php if(have_rows('giving_what')): ?>
+        <?php while(have_rows('giving_what')): the_row(); ?>
+            <?php if(get_sub_field('option_1')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> One Website</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> One Website</li>
+            <?php endif ?>
+
+            <?php if(get_sub_field('option_2')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> One User</li>
+            <?php endif ?>
+
+            <?php if(get_sub_field('option_3')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> 10 GB Bandwidth</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> 10 GB Bandwidth</li>
+            <?php endif ?>
+
+            <?php if(get_sub_field('option_4')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> 2GB Storage</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> 2GB Storage</li>
+            <?php endif ?>
+
+            <?php if(get_sub_field('option_5')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> Offline work</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> Offline work</li>
+            <?php endif ?>
+
+            <?php if(get_sub_field('option_6')): ?>
+                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+            <?php else: ?>
+                <li class="list-group-item"><i class="fa fa-times"></i> 24x7 Support</li>
+            <?php endif ?>
+        <?php endwhile ?>
+    <?php endif ?>
+
                             </ul>
                             <div class="panel-footer">
-                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="<?php the_sub_field('purchase_now_button_url'); ?>">Purchase Now!</a>
                             </div>
                         </div>
                     </div>
