@@ -203,10 +203,12 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title text-center">
-                        Our Menu    
-                    </h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                <?php if(get_field('recipe_menu_section__title','option')): ?>
+                        <h2 class="block-title text-center"><?php the_field('recipe_menu_section__title','option') ?></h2>
+                <?php endif ?>
+                <?php if(get_field('recipe_menu_section__description','option')): ?>
+                        <p class="title-caption text-center"><?php the_field('recipe_menu_section__description','option') ?></p>
+                <?php endif ?>
                     </div>
                     <div class="tab-menu">
                         <div class="slider slider-nav">
@@ -229,168 +231,84 @@
                         </div>
                         <div class="slider slider-single">
                             <div>
+
+<?php if( have_rows('starter', 'option') ): ?>
+    <?php while( have_rows('starter', 'option') ): the_row(); ?>
+
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive">
+                                        <img src="<?php the_sub_field('starter_recipe_image') ?>" alt="" class="img-responsive">
                                         <div>
-                                            <h3>GARLIC BREAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                            <h3><?php the_sub_field('starter_recipe_name') ?></h3>
+                                            <p><?php the_sub_field('starter_recipe_description') ?></p>
                                         </div>
-                                        <span class="offer-price">$8.5</span>
+                                        <span class="offer-price">$<?php the_sub_field('starter_price') ?></span>
                                     </div>
                                 </div>
                                 <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-02.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MIXED SALAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$25</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-03.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>BBQ CHICKEN WINGS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+    <?php endwhile ?>
+<?php endif ?>
+                            
                             </div>
                             <div>
+
+<?php if( have_rows('main_dishes', 'option') ): ?>
+    <?php while( have_rows('main_dishes', 'option') ): the_row(); ?>
+
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-04.jpg" alt="" class="img-responsive">
+                                        <img src="<?php the_sub_field('main_dishes_recipe_image') ?>" alt="" class="img-responsive">
                                         <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                            <h3><?php the_sub_field('main_dishes_recipe_name') ?></h3>
+                                            <p><?php the_sub_field('main_dishes_recipe_description') ?></p>
                                         </div>
-                                        <span class="offer-price">$5</span>
+                                        <span class="offer-price">$<?php the_sub_field('main_dishes_price') ?></span>
                                     </div>
                                 </div>
                                 <!-- end col -->
+    <?php endwhile ?>
+<?php endif ?>
+
+                            </div>
+
+                            <div>
+
+<?php if( have_rows('deserts', 'option') ): ?>
+    <?php while( have_rows('deserts', 'option') ): the_row(); ?>
+
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-05.jpg" alt="" class="img-responsive">
+                                        <img src="<?php the_sub_field('deserts_recipe_image') ?>" alt="" class="img-responsive">
                                         <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                            <h3><?php the_sub_field('deserts_recipe_name') ?></h3>
+                                            <p><?php the_sub_field('deserts_recipe_description') ?></p>
                                         </div>
-                                        <span class="offer-price">$15</span>
+                                        <span class="offer-price">$<?php the_sub_field(
+                                            'deserts_price') ?></span>
                                     </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-06.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>SPICY MEATBALLS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$6.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+                                </div>          
+    <?php endwhile ?>
+<?php endif ?>
+
                             </div>
                             <div>
+<?php if( have_rows('drinks', 'option') ): ?>
+    <?php while( have_rows('drinks', 'option') ): the_row(); ?>
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-07.jpg" alt="" class="img-responsive">
+                                        <img src="<?php the_sub_field('drinks_recipe_image') ?>" alt="" class="img-responsive">
                                         <div>
-                                            <h3>CHOCOLATE FUDGECAKE</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                            <h3><?php the_sub_field('drinks_recipe_name') ?></h3>
+                                            <p><?php the_sub_field('drinks_recipe_description') ?></p>
                                         </div>
-                                        <span class="offer-price">$4.5</span>
+                                        <span class="offer-price">$<?php the_sub_field('drinks_price') ?></span>
                                     </div>
                                 </div>
                                 <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-10.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$12.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$5.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+    <?php endwhile ?>
+<?php endif ?>
+
                             </div>
                         </div>
                     </div>
@@ -522,20 +440,22 @@
                     </div>
 
                     <div class="gal-container clearfix">
-<?php if( have_rows('gallery_photo', 'option') ): ?>
 
-    <?php while( have_rows('gallery_photo', 'option') ): the_row(); ?>
+<?php $images = get_field('gallery','option'); 
+    if($images):
+        foreach($images as $image): ?>
+
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#1">
-                                    <img src="<?php the_sub_field('images'); ?>" alt="" />
+                                <a href="<?php echo esc_url($image['url']); ?>" data-toggle="modal" data-target="#1">
+                                    <img src="<?php echo esc_url($image); ?>" alt="" />
                                 </a>
                                 <div class="modal fade" id="1" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="<?php echo get_template_directory_uri() ?>/images/gallery_01.jpg" alt="" />
+                                                <img src="<?php echo esc_url($image); ?>" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
                                                 <h4>This is the 1 one on my Gallery</h4>
@@ -545,11 +465,8 @@
                                 </div>
                             </div>
                         </div>
-    <?php endwhile; ?>
+        <?php endforeach;endif; ?>
 
-<?php endif; ?>
-
-                    
                     </div>
                     <!-- end gal-container -->
                 </div>
@@ -565,89 +482,50 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php if(get_field("our_blog_section_title",'option')): ?>
                     <h2 class="block-title text-center">
-                    Our Blog    
+                    <?php the_field('our_blog_section_title','option') ?>
                 </h2>
+            <?php endif ?>
                     <div class="blog-box clearfix">
+    <?php 
+    $blog_args = array('post_type' => 'our_blog', 'posts_per_page' => 4);
+    $blog_query = new WP_Query( $blog_args ); ?>
+     
+    <?php if ( $blog_query->have_posts() ) : ?>
+        <?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/featured-image-01.jpg" alt="" />
+                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="post thumbnail" />
                                         <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="<?php the_permalink(); ?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                     <div class="blog-dit">
-                                        <p><span>25 NOVEMBER, 2014</span></p>
-                                        <h2>LATEST RECIPES JUST IN!</h2>
-                                        <h5>BY John Doggett</h5>
+                                        <p><span><?php echo get_the_date(); ?></span></p>
+                                        <h2><?php the_title() ?></h2>
+                                        <h5><?php the_author( ) ?></h5>
                                     </div>
                                 </div>
                             </div>
                             <!-- end col -->
                         </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/featured-image-02.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>2 NOVEMBER, 2014</span></p>
-                                        <h2>NEW RECRUITS HAVE ARRIVED!</h2>
-                                        <h5>BY Jeffrey Spender</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/featured-image-03.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>4 NOVEMBER, 2014</span></p>
-                                        <h2>BAKING TIPS FROM THE PROS</h2>
-                                        <h5>BY Monica Reyes</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/featured-image-04.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>12 NOVEMBER, 2014</span></p>
-                                        <h2>ALL YOUR EGGS BELONG TO US</h2>
-                                        <h5>BY John Doggett</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
+
+        <?php endwhile;endif ?>
+                        
                     </div>
                     <!-- end blog-box -->
+                    
+<?php if( have_rows('action_button', 'option') ): ?>
+    <?php while( have_rows('action_button', 'option') ): the_row(); ?>
 
                     <div class="blog-btn-v">
-                        <a class="hvr-underline-from-center" href="#">View the Blog</a>
+                        <a class="hvr-underline-from-center" href="<?php the_sub_field('our_blog_action_button_url') ?>"><?php the_sub_field('our_blog_action_button_text') ?></a>
                     </div>
-
+<?php endwhile;endif ?>
                 </div>
                 <!-- end col -->
             </div>
@@ -754,7 +632,7 @@
                         </div>
                         <h4 class="form-title">BOOKING FORM</h4>
                         <p>PLEASE FILL OUT ALL REQUIRED* FIELDS. THANKS!</p>
-                        <?php do_shortcode('[contact-form-7 id="150" title="a"]')  ?>
+                        <?php echo do_shortcode('[contact-form-7 id="147" title="Reservations Form"]')  ?>
 
                         
                         <!-- end form -->

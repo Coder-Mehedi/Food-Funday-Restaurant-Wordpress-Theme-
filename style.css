@@ -1525,7 +1525,7 @@ RESERVATIONS AREA
   color: #202020;
 }
 
-.reserve-book-btn button {
+.reserve-book-btn button, .reserve-book-btn input[type=submit] {
   color: #fff;
   min-width: 219px;
   padding: 10.5px 20px;

@@ -124,6 +124,14 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Recipe Menu',
+		'menu_title'	=> 'Recipe Menu',
+		'menu_slug' 	=> 'recipe-menu',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 	
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'About Us Section',
@@ -136,12 +144,6 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Header',
 		'parent_slug'	=> 'theme-general-settings',
 	));
-
-	// acf_add_options_sub_page(array(
-	// 	'page_title' 	=> 'Manage Team Members',
-	// 	'menu_title'	=> 'Team Member',
-	// 	'parent_slug'	=> 'theme-general-settings',
-	// ));
 
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Manage Our Gallery Section',
@@ -159,6 +161,12 @@ if( function_exists('acf_add_options_page') ) {
 		'page_title' 	=> 'Manage Pricing Plan',
 		'menu_title'	=> 'Pricing Plan',
 		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Our Blog Section Settings',
+		'menu_title'	=> 'Our Blog Section Settings',
+		'parent_slug'	=> 'edit.php?post_type=our_blog',
 	));
 	
 	acf_add_options_sub_page(array(
